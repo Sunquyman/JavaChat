@@ -1,1 +1,42 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+@font-face {
+
+	src: url('../../fonts/8bit.ttf');
+
+}
+
+.root {
+
+	-fx-background-color: black; /*#1E1E1E */
+
+}
+
+Label {
+
+	-fx-text-fill: green;
+
+}
+
+TextField, .text-area .content {
+
+	-fx-background-color: black;
+	-fx-text-fill: green;
+	-fx-border-width: 5px;
+	-fx-border-style: solid;
+	-fx-border-color: #1E1E1E;
+	-fx-border-radius:5px;
+}
+
+TextArea {
+
+	-fx-text-fill: green;
+
+}
+
+#titleLabel {
+
+	-fx-font-size: 42px;
+	-fx-font-family: '8bit';
+
+}

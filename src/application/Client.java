@@ -89,6 +89,8 @@ public class Client implements Runnable {
 		checkServerMessages();
 	}
 
-
+	public String getUsername(){
+		return nickname;
+	}
 
 }

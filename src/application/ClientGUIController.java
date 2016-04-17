@@ -1,5 +1,6 @@
 package application;
 
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import java.io.IOException;
@@ -23,6 +24,9 @@ public class ClientGUIController implements Initializable {
 	private TextArea userArea;
 
 	@FXML
+	private Label usernameLabel;
+
+	@FXML
 	private TextField messageField;
 
 	@Override
@@ -31,6 +35,7 @@ public class ClientGUIController implements Initializable {
 		c = new Client(this);
 		try {
 			c.makeConnection();
+			usernameLabel.setText(c.getUsername() + ":");
 			Thread t = new Thread(c);
 			t.start();
 		} catch (IOException e) {
