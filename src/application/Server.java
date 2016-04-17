@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Server {
@@ -112,7 +114,8 @@ public class Server {
 			while(!isFinished){
 				try {
 					String msg = reader.readLine();
-					writeChatMessages(clientNickname + ": " + msg);
+					String timestamp = String.format("[%tT]", Calendar.getInstance());
+					writeChatMessages(timestamp + " " + clientNickname + ": " + msg);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
