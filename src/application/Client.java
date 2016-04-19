@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class Client implements Runnable {
@@ -85,9 +86,10 @@ public class Client implements Runnable {
 		while(!isFinished){
 			try {
 				String msg = reader.readLine();
-				if(msg.indexOf("%(/U+") == 1){
+				if(msg.indexOf("%(/U+") != -1){
 					msg = msg.substring(5);
 					cc.writeToUser(msg);
+					cc.writeToChat("* [" + msg + "] has joined JavaChat! " + String.format("(%tT)", Calendar.getInstance())); //This should really be the server's job, as a server message, but temporary
 				} else{
 					cc.writeToChat(msg);
 				}

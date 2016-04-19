@@ -78,6 +78,20 @@ public class Server {
 		}
 	}
 
+	public void writeUsername(String username){
+
+		PrintWriter clientWriter;
+
+		for(ClientHandler ch : servList){
+
+			if(!ch.getNickname().equals(username)){ //If the newly logged in username is different from the one you're thinking of writing it to, write it! Cleaner solution is perhaps make it so duplicates don't happen by tweaking logic behind what is sent/not sent, but meh
+				clientWriter = ch.getWriter();
+				clientWriter.println("%(/U+" + username);
+				clientWriter.flush();
+			}
+		}
+	}
+
 	public String usernamesToString(){
 
 		String str = "%(/L";
@@ -91,6 +105,7 @@ public class Server {
 			}
 			str = str + servList.get(servList.size() - 1).getNickname();
 		}
+
 		return str;
 	}
 
@@ -165,6 +180,7 @@ public class Server {
 			System.out.println(usernamesToString());
 			writer.println(usernamesToString());
 			writer.flush();
+			writeUsername(clientNickname); //write this new ClientHandler, under Server's, nickname to all other Clients
 		}
 	}
 
