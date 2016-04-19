@@ -51,6 +51,18 @@ public class Client implements Runnable {
 		writer.println(nickname);
 		writer.flush();
 		System.out.println("Connected successfully!");
+		String userList = reader.readLine();
+		System.out.println(userList);
+		try {
+			String[] tempList = userList.substring(4).split("p!8s@p");
+			System.out.println(tempList);
+			for(String str : tempList){
+				cc.writeToUser(str);
+			}
+		} catch(Exception e){
+			cc.writeToUser(userList.substring(4));
+		}
+
 
 	}
 
@@ -73,8 +85,12 @@ public class Client implements Runnable {
 		while(!isFinished){
 			try {
 				String msg = reader.readLine();
-				//System.out.println(msg);
-				cc.writeToChat(msg);
+				if(msg.indexOf("%(/U+") == 1){
+					msg = msg.substring(5);
+					cc.writeToUser(msg);
+				} else{
+					cc.writeToChat(msg);
+				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -78,6 +78,22 @@ public class Server {
 		}
 	}
 
+	public String usernamesToString(){
+
+		String str = "%(/L";
+
+		if(servList.size() == 1){
+			str = str + servList.get(0).getNickname();
+
+		} else{
+			for(int i = 0; i < servList.size() - 1; i++){
+				str = str + servList.get(i).getNickname() + "p!8s@p";
+			}
+			str = str + servList.get(servList.size() - 1).getNickname();
+		}
+		return str;
+	}
+
 
 
 
@@ -102,6 +118,7 @@ public class Server {
 				System.out.println("Getting nickname...");
 				clientNickname = reader.readLine();
 				System.out.println(clientNickname + " is now connected at port " + s.getPort());
+
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -132,11 +149,22 @@ public class Server {
 			return writer;
 		}
 
+		public String getNickname(){
+			return clientNickname;
+		}
+
 		@Override
 		public void run() {
 			// TODO Auto-generated method stub
+			loadNames();
 			readMessages();
 
+		}
+
+		public void loadNames() {
+			System.out.println(usernamesToString());
+			writer.println(usernamesToString());
+			writer.flush();
 		}
 	}
 

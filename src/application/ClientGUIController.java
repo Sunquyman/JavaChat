@@ -59,5 +59,9 @@ public class ClientGUIController implements Initializable {
 		chatArea.appendText(msg + "\n");
 	}
 
+	public void writeToUser(String msg){
+		userArea.appendText(msg + "\n");
+	}
+
 
 }
