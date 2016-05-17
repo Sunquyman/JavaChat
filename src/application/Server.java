@@ -16,10 +16,11 @@ public class Server {
 	ServerSocket servSocket;
 	Scanner sc;
 
-	ArrayList<ClientHandler> servList = new ArrayList<ClientHandler>();
+	ArrayList<ClientHandler> servList;
 
 	public Server(){
 
+		servList = new ArrayList<ClientHandler>();
 		sc = new Scanner(System.in);
 		System.out.println("Use default options? (5000) (Y/N)");
 		String in = sc.nextLine();
