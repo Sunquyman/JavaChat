@@ -15,7 +15,7 @@ import javafx.scene.input.KeyEvent;
 
 public class ClientGUIController implements Initializable {
 
-	Client c;
+	private Client c;
 
 	@FXML
 	private TextArea chatArea;

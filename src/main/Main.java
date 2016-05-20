@@ -3,6 +3,7 @@ package main;
 import java.io.IOException;
 import java.util.Scanner;
 
+import gui.GUILauncher;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -25,6 +26,7 @@ public class Main extends Application {
 
 	public void startProgram(Stage primaryStage){
 
+		GUILauncher gl = new GUILauncher(primaryStage);
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Welcome to JavaChat(TM/Copyright/NSA/Ibasicallyownallthemessagesyoutype)");
@@ -47,7 +49,7 @@ public class Main extends Application {
 //					// TODO Auto-generated catch block
 //					e1.printStackTrace();
 //				}
-				showClientGUI(primaryStage);
+				gl.showClientGUI();
 			}
 			if(!(in.equals("1")||(in.equals("2")))){
 				System.out.println("Please try again... must be a number between 1 and 2 inclusively.");
@@ -57,32 +59,5 @@ public class Main extends Application {
 
 	}
 
-	public void showServerGUI(Stage primaryStage){
-
-		try {
-			Parent root = FXMLLoader.load(getClass().getResource("ServerGUI.fxml"));
-			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("JavaChat Server");
-			primaryStage.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void showClientGUI(Stage primaryStage){
-
-		try {
-			Parent root = FXMLLoader.load(getClass().getResource("ClientGUI.fxml"));
-			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("JavaChat Client");
-			primaryStage.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 }

@@ -11,13 +11,13 @@ import java.util.Scanner;
 
 public class Client implements Runnable {
 
-	Socket s;
-	BufferedReader reader;
-	PrintWriter writer;
-	Scanner sc;
-	String nickname;
+	private Socket s;
+	private BufferedReader reader;
+	private PrintWriter writer;
+	private Scanner sc;
+	private String nickname;
 
-	ClientGUIController cc;
+	private ClientGUIController cc;
 
 	public Client() {
 		sc = new Scanner(System.in);

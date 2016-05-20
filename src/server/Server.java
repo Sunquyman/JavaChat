@@ -13,10 +13,10 @@ import java.util.Scanner;
 
 public class Server {
 
-	ServerSocket servSocket;
-	Scanner sc;
+	private ServerSocket servSocket;
+	private Scanner sc;
 
-	ArrayList<ClientHandler> servList;
+	private ArrayList<ClientHandler> servList;
 
 	public Server(){
 
@@ -119,11 +119,11 @@ public class Server {
 
 	class ClientHandler implements Runnable {
 
-		Socket s;
-		BufferedReader reader;
-		PrintWriter writer;
-		Scanner sc;
-		String clientNickname;
+		private Socket s;
+		private BufferedReader reader;
+		private PrintWriter writer;
+		private Scanner sc;
+		private String clientNickname;
 
 		public ClientHandler(Socket inS){
 
