@@ -1,4 +1,4 @@
-package application;
+package main;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -6,6 +6,7 @@ import java.util.Scanner;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import server.Server;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
